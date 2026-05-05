@@ -17,7 +17,7 @@ public class HealthControllerTest {
 
     @Test
     void shouldReturnOkStatus() throws Exception {
-        mockMvc.perform(get("health"))
+        mockMvc.perform(get("/health"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.status").value("OK"));
     }
