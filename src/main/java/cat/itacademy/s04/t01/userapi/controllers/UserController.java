@@ -8,16 +8,17 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Stream;
 
 @RestController
 public class UserController {
 
     private static final List<User> users = new ArrayList<>();
 
-    @GetMapping("/users")
+    /*@GetMapping("/users")
     public List<User> user() {
         return users;
-    }
+    }*/
 
     @PostMapping("/users")
     public User createUser(@RequestBody CreateUserRequest request) {
@@ -32,6 +33,15 @@ public class UserController {
                 .filter(user -> user.id().equals(id))
                 .findFirst()
                 .orElseThrow(UserNotFoundException::new);
+    }
+
+    @GetMapping("/users")
+    public List<User> findUserByName(@RequestParam(required = false) String name) {
+        if (name == null) {
+            return users;
+        }
+        return users.stream()
+                .filter(user -> user.name().toLowerCase().contains(name.toLowerCase())).toList();
     }
 
 }
