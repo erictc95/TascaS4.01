@@ -40,9 +40,9 @@ public class UserControllerTest {
     void createUser_returnsUserWithId() throws Exception {
         CreateUserRequest request = new CreateUserRequest("Ada Lovelace", "ada@example.com");
 
-        mockMvc.perform(post("/users"))
+        mockMvc.perform(post("/users")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(request))
+                .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name").value("Ada Lovelace"))
                 .andExpect(jsonPath("$.email").value("ada@example.com"))
