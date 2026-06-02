@@ -94,6 +94,7 @@ public class UserControllerTest {
 
         mockMvc.perform(get("/users").param("name", "ney"))
                 .andExpect(jsonPath("$[0].name").value("Neymar PSG"))
+                .andExpect(jsonPath("$[0].email").value("neymar@football.es"))
                 .andExpect(status().isOk());
     }
 }
