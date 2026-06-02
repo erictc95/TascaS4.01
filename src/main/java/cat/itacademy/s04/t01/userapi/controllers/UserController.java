@@ -12,12 +12,7 @@ import java.util.UUID;
 @RestController
 public class UserController {
 
-    private static final List<User> users = new ArrayList<>();
-
-    /*@GetMapping("/users")
-    public List<User> user() {
-        return users;
-    }*/
+    static final List<User> users = new ArrayList<>();
 
     @PostMapping("/users")
     public User createUser(@RequestBody CreateUserRequest request) {
