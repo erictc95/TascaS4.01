@@ -2,6 +2,7 @@ package cat.itacademy.s04.t01.userapi.controllers;
 
 import cat.itacademy.s04.t01.userapi.dto.CreateUserRequest;
 import cat.itacademy.s04.t01.userapi.models.User;
+import cat.itacademy.s04.t01.userapi.repository.InMemoryUserRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,6 +25,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class UserControllerTest {
 
     @Autowired
+    private InMemoryUserRepository repository;
+
+    @Autowired
     private MockMvc mockMvc;
 
     @Autowired
@@ -31,7 +35,7 @@ public class UserControllerTest {
 
     @BeforeEach
     void setup() {
-        UserController.users.clear();
+        repository.clear();
     }
 
     @Test

@@ -13,6 +13,10 @@ public class InMemoryUserRepository implements UserRepository  {
 
     private final List<User> users = new ArrayList<>();
 
+    public void clear() {
+        users.clear();
+    }
+
     @Override
     public User save(User user) {
         users.add(user);
