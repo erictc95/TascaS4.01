@@ -29,24 +29,26 @@ The application was developed progressively through three levels, introducing ar
 
 ---
 
-# Project Structure
+## Project Structure
 
+```text
 src/main/java
 ├── controllers
-│ └── UserController
+│   └── UserController
 ├── dto
-│ └── CreateUserRequest
+│   └── CreateUserRequest
 ├── exceptions
-│ ├── UserNotFoundException
-│ └── EmailAlreadyExistsException
+│   ├── UserNotFoundException
+│   └── EmailAlreadyExistsException
 ├── models
-│ └── User
+│   └── User
 ├── repository
-│ ├── UserRepository
-│ └── InMemoryUserRepository
+│   ├── UserRepository
+│   └── InMemoryUserRepository
 ├── service
-│ ├── UserService
-│ └── UserServiceImp
+│   ├── UserService
+│   └── UserServiceImp
+```
 
 The application follows a layered architecture:
 
