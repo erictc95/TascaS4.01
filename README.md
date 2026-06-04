@@ -48,6 +48,20 @@ src/main/java
 └── service
     ├── UserService
     └── UserServiceImp
+
+src
+├── main
+│   └── java
+│       ├── controllers
+│       ├── dto
+│       ├── exceptions
+│       ├── models
+│       ├── repository
+│       └── service
+└── test
+    └── java
+        ├── UserControllerTest
+        └── UserServiceImpTest
 ```
 
 The application follows a layered architecture:
