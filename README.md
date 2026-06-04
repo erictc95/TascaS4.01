@@ -45,9 +45,9 @@ src/main/java
 ├── repository
 │   ├── UserRepository
 │   └── InMemoryUserRepository
-├── service
-│   ├── UserService
-│   └── UserServiceImp
+└── service
+    ├── UserService
+    └── UserServiceImp
 ```
 
 The application follows a layered architecture:
