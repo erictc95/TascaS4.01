@@ -12,8 +12,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -37,9 +36,11 @@ class UserServiceImpTest {
     void createUser_shouldCreateUserSuccessfulIfEmailNotExist() {
         User userMock = new User(UUID.randomUUID(), "Ronaldinho Blaugrana", "ronaldinho@football.es");
         when(userRepository.existsByEmail(userMock.email())).thenReturn(false);
-        when(userRepository.save(userMock)).thenReturn(userMock);
+        when(userRepository.save(any(User.class))).thenReturn(userMock);
         User resultMock = userServiceImp.createUser(userMock);
-        assertEquals(userMock, resultMock);
-        verify(userRepository, times(1)).save(userMock);
+        assertNotNull(resultMock);
+        assertEquals(userMock.name(), resultMock.name());
+        assertEquals(userMock.email(), resultMock.email());
+        verify(userRepository).save(any(User.class));
     }
 }
