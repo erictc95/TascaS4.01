@@ -23,7 +23,7 @@ public class UserServiceImp implements UserService{
         if (userRepository.existsByEmail(user.email())) {
             throw new EmailAlreadyExistsException();
         } else {
-            return userRepository.save(user);
+            return userRepository.save(new User(UUID.randomUUID(), user.name(), user.email()));
         }
     }
 

@@ -19,7 +19,7 @@ public class UserController {
 
     @PostMapping("/users")
     public User createUser(@RequestBody CreateUserRequest request) {
-        User newUser = new User(UUID.randomUUID(), request.name(), request.email());
+        User newUser = new User(null, request.name(), request.email());
         return userService.createUser(newUser);
     }
 
