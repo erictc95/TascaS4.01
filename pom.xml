@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>cat.itacademy.s04.t01</groupId>
-    <artifactId>userapi</artifactId>
+    <artifactId>01-Userapi</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <properties>
